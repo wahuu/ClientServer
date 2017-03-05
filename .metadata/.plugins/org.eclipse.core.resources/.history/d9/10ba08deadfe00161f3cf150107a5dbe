@@ -1,0 +1,22 @@
+package pl.server.pojo;
+
+import java.util.List;
+
+import pl.server.dto.Connections;
+import pl.server.dto.MediaLibrary;
+
+public class ExtraSchedule {
+
+	private List<MediaLibrary> media;
+	private String ip;
+
+
+	public List<MediaLibrary> getMedia() {
+		return media;
+	}
+
+	public void setMedia(List<MediaLibrary> media) {
+		this.media = media;
+	}
+
+}

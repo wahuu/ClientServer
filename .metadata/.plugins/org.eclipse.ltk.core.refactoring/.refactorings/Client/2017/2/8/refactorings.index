@@ -1,0 +1,5 @@
+1487793895110	Rename type 'RESTProcessor'
+1487799318305	Extract local variable 'msg'
+1487800275711	Extract local variable 'listFiles'
+1487801631798	Extract local variable 'scaledInstance'
+1487801642681	Extract local variable 'imageIcon'

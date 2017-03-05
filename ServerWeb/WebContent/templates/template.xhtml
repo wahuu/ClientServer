@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<title><ui:insert name="title">Server project</ui:insert></title>
+</h:head>
+<h:body>
+	<ui:insert name="header">
+		<div class="navbar navbar-inverse">
+			<div>
+				<h1>SERVER</h1>
+			</div>
+			<div class="tabs">
+				<h:form>
+					<p:link outcome="/index" value="Home" styleClass="navlink"
+						class="btn btn-default"></p:link>
+					<p:link outcome="/forms/media" value="Media" styleClass="navlink"
+						class="btn btn-default"></p:link>
+					<p:link outcome="/forms/harmonogram" value="Schedule" styleClass="navlink"
+						class="btn btn-default"></p:link>
+				</h:form>
+			</div>
+		</div>
+	</ui:insert>
+	<div class="container">
+		<ui:insert name="content">Default content</ui:insert>
+	</div>
+
+</h:body>
+</html>

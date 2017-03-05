@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ServerEAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="ServerWeb.war" deploy-path="/" handle="module:/resource/ServerWeb/ServerWeb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ServerDTO.jar" deploy-path="/lib" handle="module:/resource/ServerDTO/ServerDTO">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ServerEJB.jar" deploy-path="/" handle="module:/resource/ServerEJB/ServerEJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ServerEJBClient.jar" deploy-path="/" handle="module:/resource/ServerEJBClient/ServerEJBClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

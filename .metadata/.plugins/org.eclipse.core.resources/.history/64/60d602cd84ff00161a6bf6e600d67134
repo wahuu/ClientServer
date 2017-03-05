@@ -1,0 +1,51 @@
+package pl.server.rest;
+
+import java.util.Date;
+
+public class ScheduleResponse {
+	private String title;
+	private Date dateFrom;
+	private Date dateTo;
+	private String mediaName;
+
+	public ScheduleResponse(String title, Date dateFrom, Date dateTo, String mediaName) {
+		super();
+		this.title = title;
+		this.dateFrom = dateFrom;
+		this.dateTo = dateTo;
+		this.mediaName = mediaName;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public Date getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(Date dateTo) {
+		this.dateTo = dateTo;
+	}
+
+	public String getMediaName() {
+		return mediaName;
+	}
+
+	public void setMediaName(String mediaName) {
+		this.mediaName = mediaName;
+	}
+
+}

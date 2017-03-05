@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<h1>Media</h1>
+		<hr />
+
+		<h:form id = "form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:fileUpload fileUploadListener="#{mainForm.handleFileUpload}"
+				mode="advanced" dragDropSupport="false" update="msgs"
+				sizeLimit="300000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+			<p:carousel value="#{mainForm.media}" headerText="Media library"
+				var="med" itemStyle="text-align:center" numVisible="1"
+				cricular="true" >
+				<h:panelGrid columns="2" style="width:100%"
+					columnClasses="label,value">
+					<f:facet name="header">
+						<p:graphicImage value="#{mainForm.image}">
+							<f:param name="imageId" value="#{med.id}" />
+						</p:graphicImage>
+					</f:facet>
+
+					<h:outputText value="Id:" />
+					<h:outputText value="#{med.id}" />
+
+					<h:outputText value="Name" />
+					<h:outputText value="#{med.name}" />
+
+					<h:outputText value="Type" />
+					<h:outputText value="#{med.extension}" />
+				</h:panelGrid>
+			</p:carousel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

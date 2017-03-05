@@ -1,0 +1,17 @@
+1488485302276	Rename type 'Schedule'
+1488485393085	Copy compilation unit
+1488485678276	Delete element
+1488486214220	Extract local variable 'schedule'
+1488486922983	Delete element
+1488486926590	Delete element
+1488486928155	Delete element
+1488486976050	Copy compilation unit
+1488487079486	Copy compilation unit
+1488490026547	Extract local variable 'schedule'
+1488561331519	Rename method 'getMedia'
+1488561434062	Extract local variable 'image'
+1488563213285	Extract local variable 'inputStream'
+1488566220319	Extract local variable 'split'
+1488566987126	Extract local variable 'parse'
+1488567042290	Extract local variable 'time'
+1488568552898	Rename field 'titles'

@@ -1,0 +1,8 @@
+package pl.server.pojo;
+
+public class ExtraHarmo {
+	
+	private String media;
+	
+
+}

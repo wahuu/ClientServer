@@ -1,0 +1,10 @@
+package pl.client;
+
+public class ScheduleResponse {
+	private int id;
+	private String title;
+	private Date dateFrom;
+	private Date dateTo;
+	private String mediaName;
+
+}

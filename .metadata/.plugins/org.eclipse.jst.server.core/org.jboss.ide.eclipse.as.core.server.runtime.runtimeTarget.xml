@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<classpath>
+  <source-attachment entry="C:/wildfly-10.0.0.Final/modules/system/layers/base/javax/ws/rs/api/main/jboss-jaxrs-api_2.0_spec-1.0.0.Final.jar" runtime-id="WildFly 10.0 Runtime" source-attachment-path="C:/Users/Wahuu/.m2/repository/org/jboss/spec/javax/ws/rs/jboss-jaxrs-api_2.0_spec/1.0.0.Final/jboss-jaxrs-api_2.0_spec-1.0.0.Final-sources.jar"/>
+</classpath>

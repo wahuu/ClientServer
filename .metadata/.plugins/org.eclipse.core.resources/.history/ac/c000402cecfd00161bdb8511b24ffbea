@@ -1,0 +1,10 @@
+package pl.server.dto;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Schedule implements Serializable{
+
+}

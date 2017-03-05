@@ -1,0 +1,32 @@
+package pl.server.dto;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+/**
+ * Entity implementation class for Entity: MessageBuffor
+ *
+ */
+@Entity
+public class Schedule implements Serializable{
+	@GeneratedValue
+	@Id
+	private int id;
+	private String title;
+	private Date dateFrom;
+	private Date dateTo;
+	
+	@OneToOne
+	@JoinColumn(name = "connection_id")
+	private Connections connection;
+	@OneToOne
+	@JoinColumn(name = "media_id")
+	private MediaLibrary media;
+	
+	
+}

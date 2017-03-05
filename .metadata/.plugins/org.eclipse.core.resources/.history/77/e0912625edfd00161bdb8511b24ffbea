@@ -1,0 +1,5 @@
+package pl.server.ejb;
+
+public class ScheduleBeanImpl {
+
+}
