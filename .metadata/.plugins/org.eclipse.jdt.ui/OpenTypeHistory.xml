@@ -3,5 +3,5 @@
 <typeInfo handle="=ServerWeb/src&lt;pl.server.CDIManagedBeans{MainForm.java[MainForm" modifiers="1" timestamp="1488484402913"/>
 <typeInfo handle="=ServerEJB/ejbModule&lt;pl.server.ejb{ScheduleBeanImpl.java[ScheduleBeanImpl" modifiers="1" timestamp="1488486491031"/>
 <typeInfo handle="=ServerDTO/src&lt;pl.server.dto{Schedule.java[Schedule" modifiers="1" timestamp="1488392084034"/>
-<typeInfo handle="=ServerEJB/ejbModule&lt;pl.server.rest{MessageService.java[MessageService" modifiers="1" timestamp="1488489438387"/>
+<typeInfo handle="=ServerEJB/ejbModule&lt;pl.server.rest{MessageService.java[MessageService" modifiers="1" timestamp="1488570523883"/>
 </typeInfoHistroy>

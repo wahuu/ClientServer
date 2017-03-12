@@ -2,8 +2,8 @@
 <kb-project>
  <depends-on-projects/>
  <used-by-projects>
-  <project name="ServerEJBClient"/>
   <project name="ServerWeb"/>
+  <project name="ServerEJBClient"/>
   <project name="ServerEJB"/>
  </used-by-projects>
  <paths>
