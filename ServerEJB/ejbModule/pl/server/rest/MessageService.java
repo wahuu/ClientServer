@@ -19,18 +19,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import pl.server.constants.ConnectionsStatus;
 import pl.server.constants.Status;
 import pl.server.dto.Connections;
 import pl.server.dto.MediaLibrary;
-import pl.server.dto.MessageBuffor;
 import pl.server.dto.Schedule;
-import pl.server.dto.TextMessageBuffor;
 import pl.server.ejb.ConnectionBeanImpl;
 import pl.server.ejb.MediaLibraryBeanImpl;
-import pl.server.ejb.MessageBeanImpl;
 import pl.server.ejb.ScheduleBeanImpl;
-import pl.server.ejb.TextMessageBeanImpl;
 import pl.server.socket.SocketInstance;
 import pl.server.socket.SocketProcessor;
 
@@ -43,28 +38,11 @@ public class MessageService {
 	@Inject
 	ConnectionBeanImpl connectionBean;
 	@Inject
-	TextMessageBeanImpl textMessageBeanImpl;
-	@Inject
-	MessageBeanImpl messageBeanImpl;
-	@Inject
 	ScheduleBeanImpl scheduleBeanImpl;
 	@Inject
 	MediaLibraryBeanImpl mediaLibraryBeanImpl;
 
 	private SocketProcessor sp;
-
-	// wysylanie odpowiedzi z wiadomosciami tekstowymi do klienta
-	@GET
-	@Produces("application/json")
-	public Response messages(@Context HttpServletRequest req) {
-		String remoteAddr = req.getRemoteAddr();
-		List<TextMessageBuffor> msgs = textMessageBeanImpl.getNewByIp(remoteAddr);
-		for (TextMessageBuffor textMessageBuffor : msgs) {
-			textMessageBuffor.setStatus(Status.RECEIVED.name());
-			textMessageBeanImpl.update(textMessageBuffor);
-		}
-		return Response.ok(msgs).build();
-	}
 
 	// wpisanie do bazy danych nowego polaczenia uzytkownika lub update statusu
 	// polaczenia na connected
@@ -76,7 +54,7 @@ public class MessageService {
 		String ip = req.getRemoteAddr();
 		List<Connections> connections = connectionBean.getByIp(ip);
 		if (connections.size() < 1) {
-			connectionBean.addConnection(new Connections(ip, ConnectionsStatus.CONNECTED));
+			connectionBean.addConnection(new Connections(ip, Status.CONNECTED.name()));
 			createOrConnectSocket();
 		} else {
 			Connections connection = connections.get(0);
@@ -137,24 +115,6 @@ public class MessageService {
 			connectionBean.update(connection);
 		}
 		return Response.ok("ok").build();
-	}
-
-	// Przesylanie obrazów
-	@GET
-	@Produces(MediaType.APPLICATION_OCTET_STREAM)
-	@Path("/content")
-	public Response content(@Context HttpServletRequest req) {
-		String remoteAddr = req.getRemoteAddr();
-		List<MessageBuffor> msgs = messageBeanImpl.getNewByIp(remoteAddr);
-		if (msgs != null && msgs.size() > 0) {
-			MessageBuffor messageBuffor = msgs.get(0);
-			messageBuffor.setStatus(Status.RECEIVED.name());
-			messageBeanImpl.update(messageBuffor);
-			byte[] encode = java.util.Base64.getEncoder().encode(messageBuffor.getMedia().getData());
-			return Response.ok(encode).header("mime", messageBuffor.getMedia().getExtension())
-					.header("name", messageBuffor.getMedia().getName()).build();
-		}
-		return Response.noContent().build();
 	}
 
 	@GET

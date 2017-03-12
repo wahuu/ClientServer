@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pl.server.dto.MediaLibrary;
-import pl.server.dto.TextMessageBuffor;
 
 @Named
 @Stateless

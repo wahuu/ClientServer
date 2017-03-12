@@ -4,14 +4,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -22,25 +19,15 @@ import javax.inject.Named;
 import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.SelectEvent;
-import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.ScheduleEvent;
-import org.primefaces.model.ScheduleModel;
 import org.primefaces.model.StreamedContent;
 
-import pl.server.constants.Status;
 import pl.server.dto.Connections;
 import pl.server.dto.MediaLibrary;
-import pl.server.dto.MessageBuffor;
-import pl.server.dto.TextMessageBuffor;
 import pl.server.ejb.ConnectionBeanImpl;
 import pl.server.ejb.MediaLibraryBeanImpl;
-import pl.server.ejb.MessageBeanImpl;
-import pl.server.ejb.TextMessageBeanImpl;
 
 @Named
-// @SessionScoped
 @RequestScoped
 public class MainForm implements Serializable {
 	/**
@@ -50,11 +37,7 @@ public class MainForm implements Serializable {
 	@Inject
 	ConnectionBeanImpl connectionBean;
 	@Inject
-	TextMessageBeanImpl textMessageBeanImpl;
-	@Inject
 	MediaLibraryBeanImpl mediaLibraryBeanImpl;
-	@Inject
-	MessageBeanImpl messageBeanImpl;
 
 	List<Connections> connections;
 	Connections selectedConnection;
@@ -76,33 +59,6 @@ public class MainForm implements Serializable {
 		int responseCode = con.getResponseCode();
 		System.out.println();
 	}
-
-/*	public void send(ActionEvent event) {
-		FacesMessage message = null;
-		if (textMessage != null && !textMessage.equals("") && selectedConnection != null) {
-			textMessageBeanImpl
-					.addMessage(new TextMessageBuffor(selectedConnection.getIp(), Status.NEW.name(), textMessage));
-			message = new FacesMessage("Sent '" + textMessage + "' to ip: " + selectedConnection.getIp());
-		} else {
-			message = new FacesMessage("Error");
-		}
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}*/
-
-	/**
-	 * Juz nie uzywane
-	 * @param med
-	 */
-/*	public void sendImage(MediaLibrary med) {
-		FacesMessage message = null;
-		if (med != null && selectedConnection != null) {
-			messageBeanImpl.addMessage(new MessageBuffor(selectedConnection.getIp(), Status.NEW.name(), med));
-			message = new FacesMessage("Sent '" + med.getName() + "' to ip: " + selectedConnection.getIp());
-		} else {
-			message = new FacesMessage("Error");
-		}
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}*/
 
 	public void handleFileUpload(FileUploadEvent event) {
 		FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
