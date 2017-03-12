@@ -7,7 +7,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.List;
-
+/**
+ * Konkretny socket 
+ */
 public class SocketInstance extends Thread {
 	private Socket socket;
 	private int clientNumber;
@@ -21,20 +23,15 @@ public class SocketInstance extends Thread {
 		}
 		this.clientNumber = clientIp;
 	}
-
+/**
+ * Wysylanie informacji do klienta, ze polaczenie zostalo zawarte
+ */
 	public void run() {
 		try {
-			// Decorate the streams so we can send characters
-			// and not just bytes. Ensure output is flushed
-			// after every newline.
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-			// Send a welcome message to the client.
 			out.println("Hello, you are client #" + clientNumber + ".");
-			out.println("Enter a line with only a period to quit\n");
-			// Get messages from the client, line by line; return them
-			// capitalized
 			while (true) {
 				String input = in.readLine();
 				if (input == null || input.equals(".")) {
@@ -49,14 +46,15 @@ public class SocketInstance extends Thread {
 			try {
 				socket.close();
 				removeAfterClose();
-				// set disconneced for ip
 			} catch (IOException e) {
 				System.out.println("Couldn't close a socket, what's going on?");
 			}
 			System.out.println("Connection with client# " + clientNumber + " closed");
 		}
 	}
-
+/**
+ * Wsyla wiadomosci o harmonogramie 
+ */
 	public void sendMessage() {
 		try {
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);

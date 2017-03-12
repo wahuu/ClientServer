@@ -10,6 +10,10 @@ import javax.persistence.TypedQuery;
 
 import pl.server.dto.Connections;
 
+/**
+ * 
+ * Dodawanie,pobieranie, usuwanie do bazy danych 
+ */
 @Named
 @Stateless
 public class ConnectionBeanImpl {
@@ -17,7 +21,7 @@ public class ConnectionBeanImpl {
 	@PersistenceContext
 	private EntityManager em;
 
-	public void addConnection(Connections connection) {
+	public void addConnection(Connections connection) {    
 		em.persist(connection);
 	}
 

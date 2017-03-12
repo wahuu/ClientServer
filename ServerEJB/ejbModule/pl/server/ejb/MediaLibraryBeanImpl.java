@@ -9,7 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pl.server.dto.MediaLibrary;
-
+/**
+ * 
+ * operacje na tabeli MediaLibrary
+ */
 @Named
 @Stateless
 public class MediaLibraryBeanImpl {

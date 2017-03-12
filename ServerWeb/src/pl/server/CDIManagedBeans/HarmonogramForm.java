@@ -38,7 +38,10 @@ import pl.server.ejb.ConnectionBeanImpl;
 import pl.server.ejb.MediaLibraryBeanImpl;
 import pl.server.ejb.ScheduleBeanImpl;
 import pl.server.pojo.ExtraSchedule;
-
+/**
+ * Widok stronki serwera (podstrona harmonogramu)
+ *
+ */
 @Named
 @SessionScoped
 public class HarmonogramForm implements Serializable {

@@ -11,7 +11,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.google.gson.Gson;
-
+/**
+ * 
+ *Klasa wysylajaca zapytania do restow 
+ */
 public class RequestProcessor {
 	public static final String serverIp = "localhost";
 

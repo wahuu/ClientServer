@@ -9,7 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import pl.server.dto.Schedule;
-
+/**
+ * 
+ * operacje na tabeli schedule 
+ */
 @Named
 @Stateless
 public class ScheduleBeanImpl {

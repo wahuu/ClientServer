@@ -11,12 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+/**
+ * Encja przechowywujaca multimedia
+ *
+ */
 @Entity
 public class MediaLibrary implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2L;
 	@GeneratedValue
 	@Id

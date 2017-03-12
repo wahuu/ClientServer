@@ -4,11 +4,10 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Connections
+ * Encja przechowywujaca infomacje o polaczeniach
  * 
  */
 @Entity
-
 public class Connections implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@GeneratedValue
@@ -55,7 +54,5 @@ public class Connections implements Serializable {
 	public String toString() {
 		return this.ip;
 	}
-	
-	
 
 }

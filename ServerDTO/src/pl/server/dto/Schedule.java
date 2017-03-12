@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
- * Entity implementation class for Entity: MessageBuffor
+ * Encja przechowywujaca informacje o harmonogramie
  *
  */
 @Entity

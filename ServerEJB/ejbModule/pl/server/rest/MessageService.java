@@ -38,21 +38,26 @@ public class MessageService {
 	@Inject
 	ConnectionBeanImpl connectionBean;
 	@Inject
-	ScheduleBeanImpl scheduleBeanImpl;
+	ScheduleBeanImpl scheduleBeanImpl;  
 	@Inject
 	MediaLibraryBeanImpl mediaLibraryBeanImpl;
 
 	private SocketProcessor sp;
 
-	// wpisanie do bazy danych nowego polaczenia uzytkownika lub update statusu
-	// polaczenia na connected
-	// oraz utworzenie socketa
+	/**
+	 * laczenie sie klienta z serwerem
+	 * wpisanie do bazy danych nowego polaczenia uzytkownika lub update statusu
+	 * polaczenia na connected oraz utworzenie socketa
+	 * 
+	 * @param req
+	 * @return
+	 */
 	@GET
 	@Produces("application/json")
 	@Path("/connect")
 	public Response connect(@Context HttpServletRequest req) {
-		String ip = req.getRemoteAddr();
-		List<Connections> connections = connectionBean.getByIp(ip);
+		String ip = req.getRemoteAddr(); // pobieranie adresu ip 
+		List<Connections> connections = connectionBean.getByIp(ip); //pobranie polaczen z baz danych po adresie ip 
 		if (connections.size() < 1) {
 			connectionBean.addConnection(new Connections(ip, Status.CONNECTED.name()));
 			createOrConnectSocket();
@@ -65,6 +70,9 @@ public class MessageService {
 		return Response.ok("ok").build();
 	}
 
+	/**
+	 * Tworzenie nowego polaczenia z klientem
+	 */
 	private void createOrConnectSocket() {
 		if (sp == null) {
 			sp = SocketProcessor.getInstance();
@@ -72,6 +80,13 @@ public class MessageService {
 		}
 	}
 
+	/**
+	 * Wyslanie informacji o zmianie harmonogramu - do wszystkich podlaczonych
+	 * socketow
+	 * 
+	 * @param req
+	 * @return
+	 */
 	@GET
 	@Produces("application/json")
 	@Path("/sendtosockets")
@@ -82,6 +97,12 @@ public class MessageService {
 		return Response.ok("ok").build();
 	}
 
+	/**
+	 * Przeslanie harmonogramu dla danego uzytkownika(sprawdzanie go po ip)
+	 * 
+	 * @param req
+	 * @return
+	 */
 	@GET
 	@Produces("application/json")
 	@Path("/schedule")
@@ -102,7 +123,12 @@ public class MessageService {
 		return Response.ok(scheduleResponses).build();
 	}
 
-	// wpisanie do bazy danych odlaczenie uzytkownika
+	/**
+	 * Wpisanie do bazy danych odlaczenie uzytkownika
+	 * 
+	 * @param req
+	 * @return
+	 */
 	@GET
 	@Produces("application/json")
 	@Path("/disconnect")
@@ -117,6 +143,13 @@ public class MessageService {
 		return Response.ok("ok").build();
 	}
 
+	/**
+	 * Metoda zwracajaca obraz z biblioteki multimediow
+	 * 
+	 * @param req
+	 * @param name
+	 * @return
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	@Path("/media/{name}")
