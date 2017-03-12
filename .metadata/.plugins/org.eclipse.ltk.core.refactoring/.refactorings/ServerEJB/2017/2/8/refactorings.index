@@ -1,4 +1,0 @@
-1487791174154	Extract local variable 'socketInstance'
-1487792537405	Rename field 'clientIp'
-1487798271240	Extract local variable 'instance'
-1487798319155	Extract local variable 'socketsList'

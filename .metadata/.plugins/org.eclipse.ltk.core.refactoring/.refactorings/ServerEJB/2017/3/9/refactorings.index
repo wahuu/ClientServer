@@ -1,8 +1,0 @@
-1488394698862	Rename local variable 'id'
-1488485184352	Extract local variable 'byConnection'
-1488485681384	Copy compilation unit
-1488486973415	Delete element
-1488487075094	Delete element
-1488489258030	Extract local variable 'dateFrom'
-1488560968787	Extract local variable 'query'
-1488561042743	Extract local variable 'byName'
